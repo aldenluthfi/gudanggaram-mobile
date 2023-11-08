@@ -163,7 +163,5 @@ class ShopCard extends StatelessWidget {
 
         - SnackBar digunakan untuk menampilkan pesan singkat pada bagian bawah layar sebagai respon terhadap interaksi pengguna.
 
-3. 
-
 
 
