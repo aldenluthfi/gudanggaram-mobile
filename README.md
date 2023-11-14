@@ -168,7 +168,7 @@ class ShopCard extends StatelessWidget {
 
 ### Proses Implementasi
 1. Membuat halaman form tambah item
-    - 
+    -
     ```dart
     class AddForm extends StatefulWidget {
     const AddForm({super.key});
@@ -281,7 +281,7 @@ class ShopCard extends StatelessWidget {
                             _name,
                             _amount,
                             _description,
-                            
+
                             ));
                             showDialog(
                                 context: context,
@@ -339,7 +339,7 @@ class ShopCard extends StatelessWidget {
 
 2. Mengarahkan pengguna ke halaman form tambah item baru ketika menekan tombol Tambah Item pada halaman utama.
 
-    - 
+    -
     ```dart
     onTap: () {
             if (feat.name == "Lihat Item") {
@@ -362,7 +362,7 @@ class ShopCard extends StatelessWidget {
 
 3. Memunculkan data sesuai isi dari formulir yang diisi dalam sebuah pop-up setelah menekan tombol Save pada halaman formulir tambah item baru.
 
-    - 
+    -
     ```dart
     onPressed: () {
         if (_formKey.currentState!.validate()) {
@@ -370,7 +370,7 @@ class ShopCard extends StatelessWidget {
             _name,
             _amount,
             _description,
-            
+
         ));
         showDialog(
             context: context,
@@ -413,7 +413,7 @@ class ShopCard extends StatelessWidget {
 
 4. Membuat sebuah drawer
 
-    - 
+    -
     ```dart
     class DrawerNavi extends StatelessWidget {
     const DrawerNavi({super.key});
