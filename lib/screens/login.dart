@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:gudang_garam/screens/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:gudang_garam/screens/register.dart';

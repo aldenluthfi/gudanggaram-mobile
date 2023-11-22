@@ -34,10 +34,10 @@ class MyHomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: <Widget>[
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                   child: Text(
-                    'bienvenue, Alden',
+                    'bienvenue, ${loggedInUser.username}',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,

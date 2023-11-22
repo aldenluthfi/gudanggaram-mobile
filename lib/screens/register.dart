@@ -77,8 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 String password1 = _password1Controller.text;
                 String password2 = _password2Controller.text;
                 final response;
-                  response = await request
-                      .login("https://alden-luthfi-tugas.pbp.cs.ui.ac.id/auth/register/", {
+                  response = await request.post("https://alden-luthfi-tugas.pbp.cs.ui.ac.id/auth/register/", {
                     'username': username,
                     'password1': password1,
                     'password2': password2,
