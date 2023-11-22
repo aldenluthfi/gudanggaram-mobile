@@ -1,6 +1,9 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:gudang_garam/screens/menu.dart';
 import 'package:gudang_garam/widgets/item_data.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class AddForm extends StatefulWidget {
   const AddForm({super.key});
@@ -16,6 +19,8 @@ class _AddFormState extends State<AddForm> {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -154,6 +159,50 @@ class _AddFormState extends State<AddForm> {
                     },
                     child: const Text(
                       "Save",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(const Color(0xFF12486B)),
+                    ),
+                    onPressed: () async {
+                      if (_formKey.currentState!.validate()) {
+                        // Kirim ke Django dan tunggu respons
+                        final response = await request.postJson(
+                        "https://alden-luthfi-tugas.pbp.cs.ui.ac.id/create-flutter/",
+                        jsonEncode(<String, String>{
+                            'name': _name,
+                            'amount': _amount.toString(),
+                            'desc': _description,
+                        }));
+                        if (response['status'] == 'success') {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                            content: Text("Produk baru berhasil disimpan!"),
+                            ));
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => MyHomePage()),
+                            );
+                        } else {
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                                content:
+                                    Text("Terdapat kesalahan, silakan coba lagi."),
+                            )
+                          );
+                        }
+                      }
+                    },
+                    child: const Text(
+                      "Save DJANGO",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

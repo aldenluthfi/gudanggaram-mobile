@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gudang_garam/screens/all_salt_dj.dart';
 import 'package:gudang_garam/screens/form.dart';
 import 'package:gudang_garam/screens/menu.dart';
 import 'package:gudang_garam/screens/salt_page.dart';
+import 'package:gudang_garam/screens/user_salt_dj.dart';
 
 class DrawerNavi extends StatelessWidget {
   const DrawerNavi({super.key});
@@ -88,6 +90,34 @@ class DrawerNavi extends StatelessWidget {
               ),
             ),
             onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SaltCard()))
+          ),
+          ListTile(
+            tileColor: const Color.fromARGB(255, 172, 196, 11),
+            leading: const Icon(
+              Icons.view_in_ar,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Lihat Semua Item',
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const ItemPage()))
+          ),
+          ListTile(
+            tileColor: const Color.fromARGB(255, 172, 196, 11),
+            leading: const Icon(
+              Icons.view_in_ar,
+              color: Colors.white,
+            ),
+            title: const Text(
+              'Lihat Item User',
+              style: TextStyle(
+                color: Colors.white
+              ),
+            ),
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const UserItemPage()))
           ),
         ],
       ),
